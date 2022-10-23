@@ -7,6 +7,7 @@ const rotaProdutos = require("./routes/produtos");
 const rotaPedidos = require("./routes/pedidos");
 
 app.use(morgan("dev"));
+app.use("/uploads", express.static("uploads"));
 app.use(bodyParser.urlencoded({ extended: false })); // Apenas dados simples
 app.use(bodyParser.json()); //Apenas json de entrada no body
 
@@ -14,7 +15,7 @@ app.use((req, res, next) => {
   res.header("Acess-Control-Allow-Origin", "*");
   res.header(
     "Acess-Control-Allow-Header",
-    "Origin, X-Requrested-With, Content-Type, Accept, Authorization"
+    "Origin, X-Requrested-With, Content-Type, Accept, Authorization",
   );
 
   if (req.method === "OPTIONS") {
