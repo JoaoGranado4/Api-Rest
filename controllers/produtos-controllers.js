@@ -15,7 +15,7 @@ exports.getProdutos = async (req, res, next) => {
           request: {
             tipo: "GET",
             descricao: "Retornar os detalhes de um produto especific",
-            url: "http://localhost:3000/produtos/" + prod.id_produto,
+            url: process.env.URL_API + "produtos/" + prod.id_produto,
           },
         };
       }),
@@ -45,7 +45,7 @@ exports.postProdutos = async (req, res, next) => {
         request: {
           tipo: "POST",
           descricao: "Retorna todos os produto",
-          url: "http://localhost:3000/produtos",
+          url: process.env.URL_API + "produtos",
         },
       },
     };
@@ -72,8 +72,8 @@ exports.getUmProduto = async (req, res, next) => {
         imagem_produto: result[0].imagem_produto,
         request: {
           tipo: "GET",
-          descricao: "Retorna todos os produto",
-          url: "http://localhost:3000/produtos",
+          descricao: "Retorna os detalhes de um produto específico",
+          url: process.env.URL_API + "produtos/" + req.body.id_produto,
         },
       },
     };
@@ -101,7 +101,7 @@ exports.updateProduto = async (req, res, next) => {
         request: {
           tipo: "GET",
           descricao: "Retornar o produtos",
-          url: "http://localhost:3000/produtos/" + req.body.id_produto,
+          url: process.env.URL_API + "produtos",
         },
       },
     };
@@ -120,7 +120,7 @@ exports.deleteProduto = async (req, res, next) => {
       request: {
         tipo: "POST",
         descricao: "Inseri um produto",
-        url: "http://localhost:3000/produtos",
+        url: process.env.URL_API + "produtos",
         body: {
           nome: "String",
           preco: "Number",
